@@ -4,18 +4,24 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import fastify from 'fastify';
 import { AllExceptionsFilter } from './comm/exceptions/base.exception.filter';
 import { HttpExceptionFilter } from './comm/exceptions/http.exception.filter';
 import { TransformInterceptor } from './comm/interceptors/transform.interceptor';
 import { generateDocument } from './doc';
 import { AppModule } from './app.module';
+import { FastifyLogger } from './comm/logger';
 
 declare const module: any;
 
 async function bootstrap() {
+  const fastifyInstance = fastify({
+    logger: FastifyLogger,
+  });
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter(),
+    new FastifyAdapter(fastifyInstance),
   );
 
   // 接口版本化管理  Interface version management

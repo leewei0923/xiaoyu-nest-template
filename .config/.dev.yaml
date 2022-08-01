@@ -1,2 +1,21 @@
-TEST_VALUE:
-  name: cookie
+MONGODB_CONFIG:
+  name: "xiaoyu_nest_template"          # 自定义次数据库链接名称
+  type: mongodb                      # 数据库链接类型
+  url: "mongodb://localhost:27017"   # 数据库链接地址
+  username: "root"                   # 数据库链接用户名
+  password: "666666"                 # 数据库链接密码
+  database: "xiaoyu_nest_template"      # 数据库名
+  entities: "mongo"                  # 自定义加载类型
+  logging: false                     # 数据库打印日志
+  synchronize: true                  # 是否开启同步数据表功能
+
+MYSQL_CONFIG:
+  name: "user-test"
+  type: "mysql"
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: "666666"
+  database: "user-test"
+  entities: "mysql" # 这里的命名一定要跟 MongoDB 里面的配置命名区分开
+  synchronize: true

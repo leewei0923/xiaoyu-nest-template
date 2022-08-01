@@ -27,3 +27,7 @@ npm i
 
 - api文档`Swagger`
 
+- 配置数据库(MongoDB)
+
+- 自定义日志
+
